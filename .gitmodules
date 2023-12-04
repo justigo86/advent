@@ -1,0 +1,3 @@
+[submodule "advent2022"]
+	path = advent2022
+	url = https://github.com/justigo86/advent2022.git
