@@ -19,16 +19,16 @@ How many total square feet of wrapping paper should they order?
 import { readFileSync } from "node:fs";
 
 const test = [
-  "2x3x4", //58
-  "1x1x10", //43
-  "7x2x5", //(2*(7*2)) + (2*(7*5)) + (2*(2*5)) + 10 = 28+70+20+10 = 128
-  "7x10x13", //(2*(7*10)) + (2*(7*13)) + (2*(10*13)) + 70 = 140+182+260+70 = 652
+  "2x3x4", //58 //34
+  "1x1x10", //43 //14
+  "7x2x5", //(2*(7*2)) + (2*(7*5)) + (2*(2*5)) + 10 = 28+70+20+10 = 128 //84
+  "7x13x10", //(2*(7*10)) + (2*(7*13)) + (2*(10*13)) + 70 = 140+182+260+70 = 652
 ];
 //total: 881 square feet
 
 const lines = readFileSync("data.txt", { encoding: "utf-8" }).split("\r\n");
 
-const testSolve = () => {
+const part1 = () => {
   let finalCount = 0;
   lines
     .map((item) => item.split("\r\n"))
@@ -45,5 +45,18 @@ const testSolve = () => {
   console.log(finalCount);
 };
 
+const part2 = () => {
+  let finalCount = 0;
+  lines
+    .map((item) => item.split("\r\n"))
+    .map((item) => item[0].split("x").sort((a, b) => a - b))
+    .map((item) => {
+      let count = item[0] * item[1] * item[2] + (item[0] * 2 + item[1] * 2);
+      finalCount += count;
+    });
+  console.log(finalCount);
+};
+
 // console.log(testSolve);
-testSolve();
+part1();
+part2();
