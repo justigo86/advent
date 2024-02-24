@@ -29,22 +29,27 @@ const test = [
 const lines = readFileSync("data.txt", { encoding: "utf-8" }).split("\r\n");
 
 const part1 = () => {
-  let finalCount = 0;
-  lines
-    .map((item) => item.split("\r\n"))
-    .map((item) => item[0].split("x"))
-    .map((item) => {
-      let countArr = [item[0] * item[1], item[0] * item[2], item[1] * item[2]];
-      let count =
-        2 * countArr[0] +
-        2 * countArr[1] +
-        2 * countArr[2] +
-        Math.min(...countArr);
-      finalCount += count;
-    });
+  // let finalCount = 0;
+  // lines
+  //   .map((item) => item.split("\r\n"))
+  //   .map((item) => item[0].split("x"))
+  //   .map((item) => {
+  //     let countArr = [item[0] * item[1], item[0] * item[2], item[1] * item[2]];
+  //     let count =
+  //       2 * countArr[0] +
+  //       2 * countArr[1] +
+  //       2 * countArr[2] +
+  //       Math.min(...countArr);
+  //     finalCount += count;
+  //   });
+
+  let finalCount = lines
+    .map((item) => item.split("x").map((c) => Number.parseInt(c)))
+    .map(([l, w, h]) => [l * w, l * h, h * l]);
   console.log(finalCount);
 };
 
+//ribbons+bow
 const part2 = () => {
   let finalCount = 0;
   lines

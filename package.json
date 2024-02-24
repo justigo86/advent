@@ -1,0 +1,29 @@
+{
+  "name": "advent",
+  "version": "1.0.0",
+  "description": "Advent calendar challenges",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justigo86/advent.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justigo86/advent/issues"
+  },
+  "homepage": "https://github.com/justigo86/advent#readme",
+  "dependencies": {
+    "tsx": "^4.7.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.33.2"
+  }
+}
